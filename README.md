@@ -1,5 +1,5 @@
 # Toy Robot Simulator
-My solution to the TDD practice problem from Rails Girls Next Melbourne 20 May 2017
+A solution to the TDD practice problem from Rails Girls Next Melbourne 20 May 2017
 
 ## Description
 
