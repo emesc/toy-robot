@@ -1,6 +1,7 @@
-# require 'lib/board'
+require 'board'
 
 RSpec.describe Board do
+  board = Board.new
 
   specify{ expect(board.width).to eq 5 }
 
