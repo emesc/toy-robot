@@ -1,5 +1,5 @@
 # Toy Robot Simulator
-TDD practice problem from Rails Girls Next Melbourne 20 May 2017
+My solution to the TDD practice problem from Rails Girls Next Melbourne 20 May 2017
 
 ## Description
 
@@ -55,8 +55,3 @@ c)
     MOVE
     REPORT
     Output: 3,3,NORTH
-
-## Deliverables
-
-The Ruby, PHP or Python source files, the test data and any test code.
-It is not required to provide any graphical output showing the movement of the toy robot.
