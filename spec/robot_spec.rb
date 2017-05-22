@@ -17,7 +17,7 @@ RSpec.describe Robot do
 
   describe "#move" do
 
-    context "without constraints" do
+    context "within the board" do
 
       it "should move 1 unit to the west when facing west" do
         expect{ robot.move }.to change{ robot.x }.by -1
@@ -47,11 +47,12 @@ RSpec.describe Robot do
       end
     end
 
-    context "with constraints" do
+    context "out from the edges" do
 
-      it "should stay in place when moved out of the board" do
+      it "should stay in place when moved out of the top right corner" do
         position.x = Board.width - 1
         position.y = Board.height - 1
+        position.f = 'north'
         expect{ robot.move }.not_to change{ robot.x }
         expect{ robot.move }.not_to change{ robot.y }
         expect{ robot.move }.not_to change{ robot.f }
