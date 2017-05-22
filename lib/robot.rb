@@ -18,8 +18,17 @@ class Robot
     case @f
     when 'north' then @f = 'west'
     when 'south' then @f = 'east'
-    when 'west'  then @f = 'south'
     when 'east'  then @f = 'north'
+    when 'west'  then @f = 'south'
+    end
+  end
+
+  def right
+    case @f
+    when 'north' then @f = 'east'
+    when 'south' then @f = 'west'
+    when 'east'  then @f = 'south'
+    when 'west'  then @f = 'north'
     end
   end
 
