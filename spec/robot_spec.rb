@@ -1,5 +1,6 @@
 require 'robot'
 require 'position'
+require 'board'
 
 RSpec.describe Robot do
   let(:position) { Position.new(x: 3, y: 3, f: 'west') }
@@ -42,6 +43,17 @@ RSpec.describe Robot do
         position.f = 'south'
         expect{ robot.move }.not_to change{ robot.x }
         expect{ robot.move }.to change{ robot. y}.by -1
+        expect{ robot.move }.not_to change{ robot.f }
+      end
+    end
+
+    context "with constraints" do
+
+      it "should stay in place when moved out of the board" do
+        position.x = Board.width - 1
+        position.y = Board.height - 1
+        expect{ robot.move }.not_to change{ robot.x }
+        expect{ robot.move }.not_to change{ robot.y }
         expect{ robot.move }.not_to change{ robot.f }
       end
     end
