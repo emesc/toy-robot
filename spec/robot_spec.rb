@@ -1,14 +1,13 @@
 require 'robot'
+require 'position'
 
 RSpec.describe Robot do
-  robot = Robot.new
+  let(:position) { Position.new(x: 0, y: 0, f: 'north') }
+  let(:robot) { Robot.new(position) }
 
-  it "should start from the origin" do
+  it "has a position" do
     expect(robot.x).to eq 0
     expect(robot.y).to eq 0
-  end
-
-  it "should start facing north" do
     expect(robot.f).to eq 'north'
   end
 end
