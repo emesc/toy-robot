@@ -16,10 +16,4 @@ class Position
   def valid_in_y?(y)
     (0..Board.height).include? y
   end
-
-  # def move
-  #   current_x = x
-  #   current_x += 1
-
-  # end
 end

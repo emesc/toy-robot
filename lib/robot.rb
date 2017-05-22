@@ -6,4 +6,8 @@ class Robot
     @y = position.y
     @f = position.f
   end
+
+  def move
+    
+  end
 end
