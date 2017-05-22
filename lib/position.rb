@@ -9,11 +9,17 @@ class Position
     @f = f
   end
 
-  def valid_in_x?
+  def valid_in_x?(x)
     (0..Board.width).include? x
   end
 
-  def valid_in_y?
+  def valid_in_y?(y)
     (0..Board.height).include? y
   end
+
+  # def move
+  #   current_x = x
+  #   current_x += 1
+
+  # end
 end

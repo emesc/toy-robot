@@ -12,7 +12,7 @@ RSpec.describe Position do
   end
 
   it "ensures the position of the robot is within the board dimensions" do
-    expect(position).to be_valid_in_x
-    expect(position).to be_valid_in_y
+    expect(position).to be_valid_in_x(position.x)
+    expect(position).to be_valid_in_y(position.y)
   end
 end
