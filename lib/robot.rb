@@ -14,6 +14,15 @@ class Robot
     self.send("go_#{f}".to_sym)
   end
 
+  def left
+    case @f
+    when 'north' then @f = 'west'
+    when 'south' then @f = 'east'
+    when 'west'  then @f = 'south'
+    when 'east'  then @f = 'north'
+    end
+  end
+
   private
 
     def within_board_height?(y)
@@ -42,5 +51,9 @@ class Robot
     def go_west
       next_x = @x - 1
       @x = next_x if within_board_width?(next_x)
+    end
+
+    def face_
+      
     end
 end
