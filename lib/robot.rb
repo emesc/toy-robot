@@ -1,9 +1,9 @@
 class Robot
   attr_accessor :x, :y, :f
 
-  def initialize
-    @x = 0
-    @y = 0
-    @f = 'north'
+  def initialize(position)
+    @x = position.x
+    @y = position.y
+    @f = position.f
   end
 end
