@@ -99,4 +99,28 @@ RSpec.describe Robot do
       end
     end
   end
+
+  describe "#left" do
+
+    it "turn south from west" do
+      expect{ robot.left }.to change{ robot.f }.from(position.f).to('south')
+    end
+
+    it "turn north from east" do
+      position.f = 'east'
+      expect{ robot.left }.to change{ robot.f }.from(position.f).to('north')
+    end
+
+    it "turn east from south" do
+      position.f = 'south'
+      expect{ robot.left }.to change{ robot.f }.from(position.f).to('east')
+    end
+
+    it "turn west from north" do
+      position.f = 'north'
+      expect{ robot.left }.to change{ robot.f }.from(position.f).to('west')
+    end
+  end
+
+  
 end
