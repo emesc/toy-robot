@@ -5,9 +5,11 @@ require_relative 'position'
 class Controller
 
   class Config
-    @@commands = ['PLACE', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
+    @@commands   = ['PLACE', 'MOVE', 'LEFT', 'RIGHT', 'REPORT', 'QUIT']
+    @@directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
 
     def self.commands; @@commands; end
+    def self.directions; @@directions; end
   end
 
   def initialize
@@ -54,25 +56,26 @@ class Controller
     when 'quit'
       return :quit
     else
-      puts "\nI don't understand that command.\n"
+      puts "I don't understand that command."
     end
   end
 
   def place(args=[])
-    if args.empty?
-      puts "Please input valid position and direction (eg, PLACE 1,1,NORTH)"
+    args = args[0].split(',') if args[0]
+    if args.empty? || args.length != 3
+      ask_for_valid_input      
     else
-      x, y, f = split_args(args)
+      x, y, f = assign_args(args)
       place_robot(x, y, f)
     end
   end
 
-  def split_args(args)
-    args = args[0].split(',')
+  def assign_args(args)
     x = args.shift.to_i
     y = args.shift.to_i
-    f = args[0].to_s
-    return x, y, f
+    f = args[0].to_s.downcase
+    return x, y, f if Controller::Config.directions.include? f.upcase
+    ask_for_valid_input
   end
 
   def place_robot(x, y, f)
@@ -80,7 +83,7 @@ class Controller
     if valid_position?
       @robot = Robot.new(@placement)
     else
-      puts "Placement is out of the board."
+      puts "Placement is not on the board."
     end
   end
 
@@ -124,7 +127,11 @@ class Controller
     end
 
     def robot_not_on_table_info
-      puts "Robot not on table.\nPlease input valid position and direction (eg, PLACE 1,1,NORTH)\n\n"
+      puts "Robot not on table."
+    end
+
+    def ask_for_valid_input
+      puts "Please input valid position and direction (eg, PLACE 1,1,NORTH)."
     end
 
     def valid_position?
