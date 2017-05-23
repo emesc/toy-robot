@@ -104,7 +104,7 @@ class Controller
 
   def report
     return robot_not_on_table_info if robot_not_on_table?
-    puts "Output #{@robot.x}, #{@robot.y}, #{@robot.f}"
+    puts "Output: #{@robot.x},#{@robot.y},#{@robot.f}"
   end
 
   def loaded?(*files)
