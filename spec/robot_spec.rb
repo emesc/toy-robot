@@ -3,7 +3,7 @@ require 'position'
 require 'board'
 
 RSpec.describe Robot do
-  let(:position) { Position.new(x: 3, y: 3, f: 'west') }
+  let(:position) { Position.new(x: 2, y: 2, f: 'west') }
   let(:robot) { Robot.new(position) }
 
   context "initial placement" do
