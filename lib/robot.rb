@@ -61,8 +61,4 @@ class Robot
       next_x = @x - 1
       @x = next_x if within_board_width?(next_x)
     end
-
-    def face_
-      
-    end
 end
